@@ -6,7 +6,9 @@
     "outDir": "dist",
     "experimentalDecorators": true,
     "sourceMap": true,
-    "lib": ["es7", "dom"]
+    "lib": ["es7", "dom"],
+    "watch": true,
+    "incremental": true
   },
   "exclude": ["node_modules", "dist"]
 }
