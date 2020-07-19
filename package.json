@@ -4,7 +4,8 @@
   "description": "A webserver using express.js written in typeScript",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./dist/app.js"
   },
   "keywords": [
     "webserver"
@@ -12,7 +13,11 @@
   "author": "Oteng Kwaku",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^14.0.23",
     "express": "^4.17.1",
     "postgres": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

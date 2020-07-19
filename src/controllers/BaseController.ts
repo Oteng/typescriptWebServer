@@ -1,41 +1,15 @@
 export abstract class BaseController {
-    _res: any;
-    _req: any;
-
-    set res(value: any) {
-        if (value == null)
-            throw "Express Response object is required"
-        this._res = value;
+    static response(res, status: number | string, msg?: string, body: any = {}) {
+        if (typeof status == 'number')
+            res.status(status);
+        return res.send({status: status, msg: msg, data: body});
     }
 
-    get res() {
-        return this._res;
+    static sysErr(res: any, msg: string): any {
+        return BaseController.response(res, 'failed', msg || 'Where was a server Error')
     }
 
-    set req(value: any) {
-        if (value == null)
-            throw  "Express Response object is required"
-        this._req = value;
-    }
-
-    get req() {
-        return this._req;
-    }
-
-    protected constructor(req, res) {
-        this.req = req;
-        this.res = res;
-    }
-
-    response(status: number | string, msg: string, body: any = {}) {
-        return this.res.json()
-    }
-
-    sysErr(msg: string): any {
-        return this.response('failed', msg)
-    }
-
-    dataErr(msg: string) {
-        return this.response('failed', msg || 'All fields are required')
+    static dataErr(res, msg: string) {
+        return BaseController.response(res, 'failed', msg || 'All fields are required')
     }
 }
