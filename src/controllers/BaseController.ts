@@ -2,7 +2,7 @@ export abstract class BaseController {
     static response(res, status: number | string, msg?: string, body: any = {}) {
         if (typeof status == 'number')
             res.status(status);
-        return res.send({status: status, msg: msg, data: body});
+        return res.json({status: status, msg: msg, data: body});
     }
 
     static sysErr(res: any, msg: string): any {
