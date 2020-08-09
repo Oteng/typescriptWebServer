@@ -2,6 +2,7 @@ import {BaseController} from './BaseController';
 import {route} from '../decorators/Decorators';
 import {Validator} from '../service/Validator';
 import {TblUser} from '../models/TblUser';
+import {TblLogin} from '../models/TblLogin';
 
 export class UsersController extends BaseController {
     @route('/users', 'get')
@@ -34,6 +35,38 @@ export class UsersController extends BaseController {
             return UsersController.response(res, 'success', '', user.create(req.body));
         } catch (e) {
             return UsersController.response(res, 'failed', 'The server died');
+        }
+    }
+
+    @route('/login_create', 'post')
+    createLogin(req, res) {
+        let login = new TblLogin();
+        try {
+            return UsersController.response(res, 'success', '', login.create(req.body));
+        } catch (e) {
+            return UsersController.response(res, 'failed', `The server died ${e}`);
+        }
+
+    }
+
+    @route('/login', 'post')
+    login(req, res) {
+        let vaRes = Validator.valid(req.body, [
+            {field: 'username', des: 'Username is Required',}, {
+                field: 'password', des: 'Password is Required'
+            }
+        ]);
+        if (vaRes.length > 0) {
+            return UsersController.response(res, 'failed', '', vaRes);
+        }
+
+        let login = new TblLogin();
+        login.setUpdateObj(req.body);
+        let user = login.authenticate();
+        if (user) {
+            return UsersController.response(res, 'success', '', user);
+        } else {
+            return UsersController.response(res, 'failed', 'All fields are required', null);
         }
     }
 }

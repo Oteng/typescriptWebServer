@@ -1,9 +1,15 @@
 import {DB} from './DB';
+import {BaseModel} from './BaseModel';
 
-export class TblUser {
+export class TblUser extends BaseModel {
+    validate() {
+        throw new Error('Method not implemented.');
+    }
+
     private db;
 
     constructor() {
+        super();
         this.db = DB.getInstance();
     }
 
@@ -13,7 +19,7 @@ export class TblUser {
     email: string = null;
     contact: string = null;
 
-    setUpdateObj(obj) {
+    setUpdateObj(obj): any {
         if (obj.id) {
             this.id = obj.id;
         }
