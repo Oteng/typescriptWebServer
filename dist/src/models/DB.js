@@ -6,8 +6,8 @@ class DB {
         this.pgInstance = null;
         this.pgInstance = new pg_1.Client({
             host: 'localhost',
-            user: 'postgres',
-            password: '',
+            user: 'oteng',
+            password: '1234567890',
             database: 'lesson',
         });
         this.pgInstance.connect();

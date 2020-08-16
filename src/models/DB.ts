@@ -14,8 +14,8 @@ export class DB {
     constructor() {
         this.pgInstance = new Client({
             host: 'localhost',
-            user: 'postgres',
-            password: '',
+            user: 'oteng',
+            password: '1234567890',
             database: 'lesson',
         });
         this.pgInstance.connect();
