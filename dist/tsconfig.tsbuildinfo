@@ -118,7 +118,7 @@
         "signature": "eb444a021a039a6c768048626f6d788689e70cad06aa1e4cdd8099937ca1d88a"
       },
       "../src/models/db.ts": {
-        "version": "0f15776c60cfb5cda5b608e079dbdf50c82d79f05fa4fa768b36ddfaafbd08c9",
+        "version": "6a2d1f7a643ce17296989698e85cfe8f27b35a49e728bd6250503ae01f573a04",
         "signature": "5b362710ef0dc96d7b9cdbfd4dd38be9fcaa7ee6a974dc1b2b4c73da575ff287"
       },
       "../src/migration/create_table_user.ts": {

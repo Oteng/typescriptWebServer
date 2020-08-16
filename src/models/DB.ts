@@ -17,6 +17,7 @@ export class DB {
             user: 'oteng',
             password: '1234567890',
             database: 'lesson',
+
         });
         this.pgInstance.connect();
     }
