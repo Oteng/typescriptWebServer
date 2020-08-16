@@ -1,0 +1,7 @@
+apps:
+  - script: ./dist/app.js
+    name: 'pro'
+    instances: 2
+    watch: ['./dist/src/']
+    env:
+      NODE_ENV: production
